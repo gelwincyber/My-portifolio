@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Gelwin Kambo · Portfolio</title>
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== CSS VARIABLES (Gold, Blue, Orange, Green) ===== */
+    :root {
+      --gold: #F4B400;
+      --blue: #0D47A1;
+      --orange: #FF6F00;
+      --green: #2E7D32;
+      --white: #FFFFFF;
+      --dark: #1a1a2e;
+      --light-bg: #f8f9fa;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --transition: 0.3s ease;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light-bg);
+      color: #1e1e2f;
+      scroll-behavior: smooth;
+    }
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: rgba(13, 71, 161, 0.92) !important;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      padding: 12px 0;
+    }
+    .navbar .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 8px;
+      transition: var(--transition);
+      border-radius: 30px;
+      padding: 6px 18px;
+    }
+    .navbar .nav-link:hover, .navbar .nav-link.active {
+      background: var(--gold);
+      color: #0D47A1 !important;
+      transform: scale(1.02);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--gold) !important;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+    .lang-toggle {
+      background: var(--gold);
+      border: none;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-weight: 600;
+      color: #0D47A1;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .lang-toggle:hover { background: #fff; color: var(--blue); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0D47A1 0%, #F4B400 100%);
+      display: flex;
+      align-items: center;
+      padding: 100px 0 60px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><circle cx="20" cy="20" r="8"/><circle cx="80" cy="80" r="12"/><circle cx="60" cy="20" r="6"/><circle cx="20" cy="70" r="10"/></svg>');
+      background-size: 120px 120px;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .hero .highlight {
+      color: var(--gold);
+      background: rgba(0,0,0,0.1);
+      padding: 0 12px;
+      border-radius: 12px;
+    }
+    .hero .typewriter {
+      font-size: 1.8rem;
+      font-weight: 300;
+      min-height: 4rem;
+      border-right: 3px solid var(--gold);
+      display: inline-block;
+      padding-right: 8px;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0D47A1;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 4px solid rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+    .hero .btn-gold {
+      background: var(--gold);
+      color: #0D47A1;
+      font-weight: 700;
+      border: none;
+      padding: 12px 34px;
+      border-radius: 60px;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(244, 180, 0, 0.4);
+    }
+    .hero .btn-gold:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(244, 180, 0, 0.5);
+    }
+    .hero .btn-outline-light {
+      border: 2px solid #fff;
+      color: #fff;
+      border-radius: 60px;
+      padding: 12px 34px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .hero .btn-outline-light:hover {
+      background: #fff;
+      color: #0D47A1;
+      transform: translateY(-3px);
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--blue);
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 4px;
+    }
+    .section-title-gold {
+      color: var(--gold);
+    }
+
+    /* ===== CARDS & TIMELINE ===== */
+    .card {
+      border: none;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background: #fff;
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .timeline-item {
+      border-left: 4px solid var(--gold);
+      padding-left: 28px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      left: -10px;
+      top: 4px;
+    }
+    .timeline-item h5 { color: var(--blue); font-weight: 700; }
+    .timeline-item .badge-date {
+      background: var(--gold);
+      color: #0D47A1;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+    }
+
+    /* ===== SKILLS PROGRESS ===== */
+    .skill-item {
+      margin-bottom: 18px;
+    }
+    .skill-item .progress {
+      height: 10px;
+      border-radius: 20px;
+      background: #e9ecef;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .skill-item .progress-bar {
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      border-radius: 20px;
+      width: 0%;
+      transition: width 1.2s ease;
+    }
+
+    /* ===== CERTIFICATE CARDS ===== */
+    .cert-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--gold);
+      transition: var(--transition);
+    }
+    .cert-card:hover { transform: scale(1.02); }
+
+    /* ===== REFEREE CARDS ===== */
+    .ref-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(244, 180, 0, 0.15);
+    }
+    .ref-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    /* ===== SOCIAL ICONS ===== */
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 1.4rem;
+      transition: var(--transition);
+      margin: 0 6px;
+      text-decoration: none;
+    }
+    .social-icon:hover {
+      background: var(--gold);
+      color: #0D47A1;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(244, 180, 0, 0.3);
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form .form-control {
+      border-radius: 60px;
+      padding: 14px 20px;
+      border: 1px solid #dee2e6;
+      transition: var(--transition);
+    }
+    .contact-form .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(244, 180, 0, 0.15);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+    }
+    .btn-whatsapp:hover { background: #128C7E; color: #fff; transform: scale(1.02); }
+
+    /* ===== LOCATION BOX ===== */
+    .location-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--green);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0D47A1;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+    footer a { color: var(--gold); text-decoration: none; transition: var(--transition); }
+    footer a:hover { color: #fff; }
+
+    /* ===== BACK TO TOP ===== */
+    #backTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--gold);
+      color: #0D47A1;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 24px rgba(244, 180, 0, 0.3);
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+    #backTop.visible { opacity: 1; pointer-events: all; }
+    #backTop:hover { transform: scale(1.08); background: #fff; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .typewriter { font-size: 1.3rem; }
+      .profile-img { width: 140px; height: 140px; font-size: 3.5rem; }
+      .section-title { font-size: 2rem; }
+    }
+    @media (max-width: 576px) {
+      .hero { padding: 80px 0 40px; text-align: center; }
+      .hero .btn { width: 100%; margin: 6px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-code me-2"></i>JGK</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item"><a class="nav-link active" href="#home" data-en="Home" data-sw="Nyumbani">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-sw="Kuhusu">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience" data-en="Experience" data-sw="Uzoefu">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills" data-en="Skills" data-sw="Ujuzi">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education" data-en="Education" data-sw="Elimu">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications" data-en="Certifications" data-sw="Vyeti">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#languages" data-en="Languages" data-sw="Lugha">Languages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hobbies" data-en="Hobbies" data-sw="Mambo Ninayopenda">Hobbies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#referees" data-en="Referees" data-sw="Wadhamini">Referees</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
+          <li class="nav-item ms-2"><button class="lang-toggle" id="langToggle">🇬🇧 EN</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 text-center text-lg-start">
+          <div class="profile-img mx-auto mx-lg-0"><i class="fas fa-user-graduate"></i></div>
+          <h1 class="display-4 fw-bold">JOSEPH GELWIN <span class="highlight">KAMBO</span></h1>
+          <p class="typewriter fs-3" id="heroTypewriter">IT Lecturer</p>
+          <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+            <a href="#" class="btn btn-gold"><i class="fas fa-download me-2"></i> <span data-en="Download CV" data-sw="Pakua CV">Download CV</span></a>
+            <a href="#contact" class="btn btn-outline-light"><i class="fas fa-envelope me-2"></i> <span data-en="Contact Me" data-sw="Wasiliana Nami">Contact Me</span></a>
+          </div>
+          <!-- Social Icons -->
+          <div class="mt-4">
+            <a href="https://linkedin.com/in/josephgelwin" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/josephgelwin" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/josephgelwin" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/josephgelwin" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/255792394913" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="text-end"><i class="fas fa-laptop-code" style="font-size: 10rem; opacity: 0.2; color: var(--gold);"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row reveal">
+        <div class="col-12">
+          <h2 class="section-title"><span data-en="About" data-sw="Kuhusu">About</span> <span class="section-title-gold">Me</span></h2>
+          <p class="mt-4 fs-5" style="max-width: 900px;" id="aboutText">
+            <span data-en="Information Technology professional with experience in IT teaching, technical support, customer service, and digital services. Currently working as a Lecturer in Information Technology and Management at KOMU College of Technology and Management, with involvement in marketing and student recruitment activities. Skilled in technical troubleshooting, training, customer relations, and system support. Committed to continuous learning and delivering practical technology solutions that support organizational goals.">
+              Information Technology professional with experience in IT teaching, technical support, customer service, and digital services. Currently working as a Lecturer in Information Technology and Management at KOMU College of Technology and Management, with involvement in marketing and student recruitment activities. Skilled in technical troubleshooting, training, customer relations, and system support. Committed to continuous learning and delivering practical technology solutions that support organizational goals.
+            </span>
+          </p>
+          <p class="fst-italic text-secondary" id="aboutSwahili" style="display: none;">
+            Mtaalamu wa Teknolojia ya Habari mwenye uzoefu katika kufundisha TEHAMA, msaada wa kiufundi, huduma kwa wateja, na huduma za kidijitali. Kwa sasa anafanya kazi kama Mhadhiri wa Teknolojia ya Habari na Menejimenti katika Chuo cha KOMU, akiwa pia anashiriki shughuli za masoko na usajili wa wanafunzi. Ana ujuzi katika utatuzi wa matatizo ya kiufundi, mafunzo, mahusiano na wateja, na msaada wa mifumo ya TEHAMA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE (Timeline) ===== -->
+  <section id="experience" class="py-5" style="background: #f1f4f9;">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Experience" data-sw="Uzoefu">Experience</span></h2>
+      <div class="row mt-4">
+        <div class="col-lg-10 mx-auto">
+          <div class="timeline-item reveal">
+            <h5><span data-en="Lecturer — Information Technology & Management" data-sw="Mhadhiri — Teknolojia ya Habari na Menejimenti">Lecturer — Information Technology & Management</span></h5>
+            <span class="badge-date">Dec 2025 – Present</span>
+            <p class="mt-2"><strong>KOMU College of Technology and Management — Dodoma</strong></p>
+            <ul><li data-en="Deliver IT and management lessons" data-sw="Kutoa mafunzo ya TEHAMA na menejimenti">Deliver IT and management lessons</li>
+            <li data-en="Prepare lesson plans and teaching materials" data-sw="Kuandaa mipango ya masomo na vifaa vya kufundishia">Prepare lesson plans and teaching materials</li>
+            <li data-en="Participate in faculty training programmes" data-sw="Kushiriki katika mafunzo ya walimu">Participate in faculty training programmes</li>
+            <li data-en="Support marketing and student recruitment" data-sw="Kusaidia masoko na usajili wa wanafunzi">Support marketing and student recruitment</li>
+            <li data-en="Contribute to enrollment promotional strategies" data-sw="Kuchangia mikakati ya kukuza usajili">Contribute to enrollment promotional strategies</li></ul>
+          </div>
+          <div class="timeline-item reveal">
+            <h5><span data-en="Stationery & Digital Services Assistant" data-sw="Msaidizi wa Vifaa vya Kuandikia na Huduma za Kidijitali">Stationery & Digital Services Assistant</span></h5>
+            <span class="badge-date">Nov 2025 – Dec 2025</span>
+            <p class="mt-2"><strong>EcoIT Stationery — Dodoma</strong></p>
+            <ul><li data-en="Assist customers with stationery and digital services" data-sw="Kusaidia wateja kwa vifaa vya kuandikia na huduma za kidijitali">Assist customers with stationery and digital services</li>
+            <li data-en="Process invoices and maintain sales records" data-sw="Kusindika ankara na kudumisha rekodi za mauzo">Process invoices and maintain sales records</li>
+            <li data-en="Handle customer inquiries and service issues" data-sw="Kushughulikia maswali ya wateja na matatizo ya huduma">Handle customer inquiries and service issues</li>
+            <li data-en="Organize transaction records" data-sw="Kupanga rekodi za miamala">Organize transaction records</li>
+            <li data-en="Support sales management activities" data-sw="Kusaidia shughuli za usimamizi wa mauzo">Support sales management activities</li></ul>
+          </div>
+          <div class="timeline-item reveal">
+            <h5><span data-en="Technology Support & Repair Technician" data-sw="Fundi wa Msaada wa Teknolojia na Urekebishaji">Technology Support & Repair Technician</span></h5>
+            <span class="badge-date">May 2024 – Nov 2024</span>
+            <p class="mt-2"><strong>Masama Tech — Dodoma</strong></p>
+            <ul><li data-en="Diagnose hardware and software problems" data-sw="Kuchunguza matatizo ya vifaa na programu">Diagnose hardware and software problems</li>
+            <li data-en="Troubleshoot client technical issues" data-sw="Kutatua matatizo ya kiufundi ya wateja">Troubleshoot client technical issues</li>
+            <li data-en="Perform routine maintenance" data-sw="Kufanya matengenezo ya mara kwa mara">Perform routine maintenance</li>
+            <li data-en="Train users on proper system usage" data-sw="Kufunza watumiaji kuhusu matumizi sahihi ya mfumo">Train users on proper system usage</li>
+            <li data-en="Communicate repair progress clearly" data-sw="Kuwasilisha maendeleo ya ukarabati wazi">Communicate repair progress clearly</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Skills" data-sw="Ujuzi">Skills</span></h2>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="skill-item reveal"><span><i class="fab fa-html5 me-2 text-warning"></i> HTML5</span> <span class="float-end">95%</span><div class="progress"><div class="progress-bar" style="width: 95%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fab fa-css3-alt me-2 text-primary"></i> CSS3</span> <span class="float-end">90%</span><div class="progress"><div class="progress-bar" style="width: 90%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fab fa-js me-2 text-warning"></i> JavaScript</span> <span class="float-end">85%</span><div class="progress"><div class="progress-bar" style="width: 85%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fab fa-bootstrap me-2 text-primary"></i> Bootstrap 5</span> <span class="float-end">90%</span><div class="progress"><div class="progress-bar" style="width: 90%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fas fa-database me-2 text-success"></i> PHP & MySQL</span> <span class="float-end">80%</span><div class="progress"><div class="progress-bar" style="width: 80%;"></div></div></div>
+        </div>
+        <div class="col-md-6">
+          <div class="skill-item reveal"><span><i class="fas fa-headset me-2 text-info"></i> IT Support</span> <span class="float-end">92%</span><div class="progress"><div class="progress-bar" style="width: 92%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fas fa-tools me-2 text-warning"></i> Technical Troubleshooting</span> <span class="float-end">95%</span><div class="progress"><div class="progress-bar" style="width: 95%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fas fa-chalkboard-teacher me-2 text-primary"></i> Teaching & Training</span> <span class="float-end">90%</span><div class="progress"><div class="progress-bar" style="width: 90%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fas fa-smile me-2 text-success"></i> Customer Service</span> <span class="float-end">88%</span><div class="progress"><div class="progress-bar" style="width: 88%;"></div></div></div>
+          <div class="skill-item reveal"><span><i class="fas fa-chart-line me-2 text-warning"></i> Marketing Support</span> <span class="float-end">75%</span><div class="progress"><div class="progress-bar" style="width: 75%;"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="py-5" style="background: #f1f4f9;">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Education" data-sw="Elimu">Education</span></h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4 reveal"><div class="card p-4"><i class="fas fa-graduation-cap fs-1 text-warning"></i><h5 class="mt-3">Technician Diploma in Computing and ICT</h5><p class="text-muted">UCC, Dodoma · Completed: Sep 2025</p></div></div>
+        <div class="col-md-4 reveal"><div class="card p-4"><i class="fas fa-certificate fs-1 text-warning"></i><h5 class="mt-3">Certificate in Computing & IT</h5><p class="text-muted">UCC, Dodoma · Oct 2022 – Oct 2023</p></div></div>
+        <div class="col-md-4 reveal"><div class="card p-4"><i class="fas fa-school fs-1 text-warning"></i><h5 class="mt-3">Ordinary Level Secondary</h5><p class="text-muted">Lyamkena Sec. School, Njombe · 2020–2021</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications" class="py-5">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Certifications" data-sw="Vyeti">Certifications</span></h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4 reveal"><div class="cert-card"><i class="fas fa-certificate text-warning me-2"></i> Certificate in Computing and IT — UCC</div></div>
+        <div class="col-md-4 reveal"><div class="cert-card"><i class="fas fa-certificate text-warning me-2"></i> Cisco IT Essentials — Cisco Networking Academy</div></div>
+        <div class="col-md-4 reveal"><div class="cert-card"><i class="fas fa-certificate text-warning me-2"></i> Web Dev (HTML, CSS, JS) — Simplilearn</div></div>
+        <div class="col-md-4 reveal"><div class="cert-card"><i class="fas fa-certificate text-warning me-2"></i> Microsoft Word Tutorial — Great Learning</div></div>
+        <div class="col-md-4 reveal"><div class="cert-card"><i class="fas fa-certificate text-warning me-2"></i> Python for Beginners — Cisco Networking Academy</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LANGUAGES ===== -->
+  <section id="languages" class="py-5" style="background: #f1f4f9;">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Languages" data-sw="Lugha">Languages</span></h2>
+      <div class="row mt-4">
+        <div class="col-md-6 reveal"><div class="card p-4"><i class="fas fa-language fs-1 text-warning"></i><h5>Swahili</h5><div class="progress"><div class="progress-bar" style="width:95%;">95%</div></div><span class="mt-2 d-block">Advanced</span></div></div>
+        <div class="col-md-6 reveal"><div class="card p-4"><i class="fas fa-language fs-1 text-warning"></i><h5>English</h5><div class="progress"><div class="progress-bar" style="width:75%;">75%</div></div><span class="mt-2 d-block">Intermediate</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOBBIES ===== -->
+  <section id="hobbies" class="py-5">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Hobbies & Interests" data-sw="Mambo Ninayopenda">Hobbies & Interests</span></h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-3 reveal"><div class="card p-4 text-center"><i class="fas fa-film fs-1 text-warning"></i><p class="mt-2">Inspirational & educational movies</p></div></div>
+        <div class="col-md-3 reveal"><div class="card p-4 text-center"><i class="fas fa-laptop-code fs-1 text-warning"></i><p class="mt-2">Technology & system development</p></div></div>
+        <div class="col-md-3 reveal"><div class="card p-4 text-center"><i class="fas fa-puzzle-piece fs-1 text-warning"></i><p class="mt-2">Problem solving & tech challenges</p></div></div>
+        <div class="col-md-3 reveal"><div class="card p-4 text-center"><i class="fas fa-dumbbell fs-1 text-warning"></i><p class="mt-2">Fitness & sports</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REFEREES ===== -->
+  <section id="referees" class="py-5" style="background: #f1f4f9;">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Referees" data-sw="Wadhamini">Referees</span></h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4 reveal"><div class="ref-card"><i class="fas fa-user-tie fs-2 text-warning"></i><h5 class="mt-2">Christopher Kambo</h5><p>ICT Manager, e-Government Authority<br><i class="fas fa-phone me-2"></i>+255 757 297 8805<br><i class="fas fa-envelope me-2"></i>chrickambo@gmail.com</p></div></div>
+        <div class="col-md-4 reveal"><div class="ref-card"><i class="fas fa-user-tie fs-2 text-warning"></i><h5 class="mt-2">Renatus Leo</h5><p>Manager, UCC, Dodoma<br><i class="fas fa-phone me-2"></i>+255 688 171 577<br><i class="fas fa-envelope me-2"></i>kayun2i@2mail.com</p></div></div>
+        <div class="col-md-4 reveal"><div class="ref-card"><i class="fas fa-user-tie fs-2 text-warning"></i><h5 class="mt-2">Juvenalis Mwombeki</h5><p>Manager, KOMU College<br><i class="fas fa-phone me-2"></i>+255 713 563 128<br><i class="fas fa-envelope me-2"></i>mwombekiijuvenalis@yahoo.com</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT + LOCATION ===== -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="section-title reveal"><span data-en="Contact" data-sw="Mawasiliano">Contact</span></h2>
+      <div class="row g-4 mt-3">
+        <div class="col-lg-6 reveal">
+          <div class="card p-4">
+            <h5><i class="fas fa-address-card text-warning me-2"></i> <span data-en="Personal Details" data-sw="Taarifa Binafsi">Personal Details</span></h5>
+            <p><i class="fas fa-map-pin me-2 text-warning"></i> P.O. Box 1249, Ipagala Dodoma, Tanzania</p>
+            <p><i class="fas fa-envelope me-2 text-warning"></i> josephgelwin@gmail.com</p>
+            <p><i class="fas fa-phone me-2 text-warning"></i> +255 792 394 913</p>
+            <p><i class="fas fa-calendar-alt me-2 text-warning"></i> DOB: 09 Aug 2004 · Tanzanian</p>
+            <!-- LOCATION -->
+            <div class="location-box mt-3" id="locationBox">
+              <h6><i class="fas fa-map-marker-alt text-success me-2"></i> <span data-en="Your Location" data-sw="Mahali Upo">Your Location</span></h6>
+              <div id="locationDisplay"><span class="text-muted">Requesting location...</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="card p-4">
+            <h5><i class="fas fa-paper-plane text-warning me-2"></i> <span data-en="Send a Message" data-sw="Tuma Ujumbe">Send a Message</span></h5>
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3"><input type="text" class="form-control" placeholder="Full Name" required id="contactName" /></div>
+              <div class="mb-3"><input type="email" class="form-control" placeholder="Email Address" required id="contactEmail" /></div>
+              <div class="mb-3"><input type="text" class="form-control" placeholder="Subject" id="contactSubject" /></div>
+              <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Message" required id="contactMsg"></textarea></div>
+              <button type="submit" class="btn btn-primary w-100" style="background:var(--blue); border: none; border-radius:60px; padding:12px;"><i class="fas fa-paper-plane me-2"></i> <span data-en="Send Message" data-sw="Tuma Ujumbe">Send Message</span></button>
+            </form>
+            <a href="https://wa.me/255792394913" target="_blank" class="btn btn-whatsapp w-100 mt-3"><i class="fab fa-whatsapp me-2"></i> <span data-en="Send via WhatsApp" data-sw="Tuma kupitia WhatsApp">Send via WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-2"><i class="fas fa-code me-2"></i> Joseph Gelwin Kambo</p>
+          <p class="small text-light-50" id="footerSlogan" data-en="Building practical technology solutions for education, business, and society." data-sw="Kujenga suluhisho za teknolojia kwa ajili ya elimu, biashara, na jamii.">Building practical technology solutions for education, business, and society.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#home" class="me-3">Home</a>
+          <a href="#about" class="me-3">About</a>
+          <a href="#contact">Contact</a>
+          <div class="mt-2">
+            <a href="https://linkedin.com/in/josephgelwin" class="text-white me-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/josephgelwin" class="text-white me-2" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/josephgelwin" class="text-white me-2" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/josephgelwin" class="text-white me-2" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/255792394913" class="text-white" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <p class="small mt-2">&copy; <span id="currentYear">2026</span> Joseph Gelwin Kambo. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button id="backTop"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- ===== BOOTSTRAP JS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== TRANSLATION DATA =====
+    const translations = {
+      en: {
+        // nav handled via data attributes
+      },
+      sw: {
+        // data attributes will be used, we just toggle display
+      }
+    };
+    let currentLang = 'en';
+
+    // ===== LANGUAGE TOGGLE =====
+    function switchLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-en][data-sw]').forEach(el => {
+        const text = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-sw');
+        if (text) el.textContent = text;
+      });
+      // About special handling
+      const aboutEn = document.querySelector('#aboutText span[data-en]');
+      const aboutSw = document.getElementById('aboutSwahili');
+      if (lang === 'en') {
+        aboutEn.style.display = 'inline';
+        aboutSw.style.display = 'none';
+      } else {
+        aboutEn.style.display = 'none';
+        aboutSw.style.display = 'block';
+      }
+      // Update toggle button
+      document.getElementById('langToggle').innerHTML = lang === 'en' ? '🇬🇧 EN' : '🇹🇿 SW';
+    }
+
+    document.getElementById('langToggle').addEventListener('click', function() {
+      const next = currentLang === 'en' ? 'sw' : 'en';
+      switchLanguage(next);
+    });
+
+    // ===== TYPING EFFECT =====
+    const roles = ['IT Lecturer', 'Web Developer', 'Technical Support Specialist', 'Digital Solutions Professional'];
+    let idx = 0, charIdx = 0, isDeleting = false;
+    const typeEl = document.getElementById('heroTypewriter');
+    function typeEffect() {
+      const current = roles[idx];
+      if (isDeleting) {
+        typeEl.textContent = current.substring(0, charIdx--);
+        if (charIdx < 0) { isDeleting = false; idx = (idx+1)%roles.length; setTimeout(typeEffect, 500); return; }
+        setTimeout(typeEffect, 50);
+      } else {
+        typeEl.textContent = current.substring(0, charIdx++);
+        if (charIdx > current.length) { isDeleting = true; setTimeout(typeEffect, 1200); return; }
+        setTimeout(typeEffect, 90);
+      }
+    }
+    typeEffect();
+
+    // ===== SCROLL REVEAL =====
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ===== BACK TO TOP =====
+    const backBtn = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ===== NAV ACTIVE LINK =====
+    const navLinks = document.querySelectorAll('.navbar .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // ===== GEOLOCATION =====
+    const locDisplay = document.getElementById('locationDisplay');
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const { latitude, longitude } = pos.coords;
+          locDisplay.innerHTML = `
+            <p class="mb-1"><i class="fas fa-map-marker-alt text-success me-2"></i> <strong>Lat:</strong> ${latitude.toFixed(6)} · <strong>Lng:</strong> ${longitude.toFixed(6)}</p>
+            <a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank" class="btn btn-sm btn-outline-success">Open in Google Maps</a>
+          `;
+        },
+        () => {
+          locDisplay.innerHTML = `<span class="text-danger">Location access was denied. Some location-based features are unavailable.</span>`;
+        }
+      );
+    } else {
+      locDisplay.innerHTML = `<span class="text-danger">Geolocation not supported.</span>`;
+    }
+
+    // ===== FORM VALIDATION =====
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const msg = document.getElementById('contactMsg').value.trim();
+      if (!name || !email || !msg) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+
+    // ===== DYNAMIC YEAR =====
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
